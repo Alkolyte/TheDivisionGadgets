@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <!-- Seeker mine base -->
+
+  <ThingDef ParentName="BaseDrone" Name="BaseDroneSeeker" Abstract="True">
+    <statBases>
+      <MoveSpeed>13.0</MoveSpeed>
+      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+    </statBases>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <baseBodySize>0.1</baseBodySize>
+      <body>SeekerMine</body>
+      <baseHealthScale>0.15</baseHealthScale>
+        <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+        <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+        <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundDeath>Pawn_Drone_Death</soundDeath>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>shell</label>
+        <labelUsedInLogging>true</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>3</power>
+        <cooldownTime>3</cooldownTime>
+      </li>
+    </tools>
+    <butcherProducts>
+      <Steel>5</Steel>
+    </butcherProducts>
+  </ThingDef>
+
+  <!-- Seeker mine -->
+
+  <ThingDef ParentName="BaseDroneSeeker">
+    <defName>TDG_Seeker</defName>
+    <label>seeker mine</label>
+    <description>An automated mine that seeks out hostile targets before exploding on proximity.</description>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_ExplosiveMelee">
+        <radius>2.3</radius>
+        <damageAmount>35</damageAmount>
+        <damageDef>Bomb</damageDef>
+        <soundExplode>MortarBomb_Explode</soundExplode>
+        <explosionChanceToStartFire>0.0</explosionChanceToStartFire>
+        <explosionDamageFalloff>false</explosionDamageFalloff>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseDroneKind">
+    <defName>TDG_Seeker</defName>
+    <label>seeker mine</label>
+    <race>TDG_Seeker</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Drone/Seeker</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.55</drawSize>
+          <shadowData>
+            <volume>(0.2, 0.3, 0.2)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>0~0</weaponMoney>
+    <defendPointRadius>0</defendPointRadius>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+<!-- Incendiary mine -->
+
+  <ThingDef ParentName="BaseDroneSeeker">
+    <defName>TDG_Incendiary</defName>
+    <label>incendiary mine</label>
+    <description>An automated mine filled with a flammable gel that seeks out hostile targets before exploding on proximity.</description>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_ExplosiveMelee">
+        <radius>2.7</radius>
+        <damageAmount>30</damageAmount>
+        <postExplosionSpawnThingDef>Filth_Fuel</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>0.45</postExplosionSpawnChance>
+        <damageDef>Flame</damageDef>
+        <soundExplode>MortarIncendiary_Explode</soundExplode>
+        <explosionChanceToStartFire>1.0</explosionChanceToStartFire>
+        <explosionDamageFalloff>false</explosionDamageFalloff>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseDroneKind">
+    <defName>TDG_Incendiary</defName>
+    <label>incendiary mine</label>
+    <race>TDG_Incendiary</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Drone/Incendiary</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.55</drawSize>
+          <shadowData>
+            <volume>(0.2, 0.3, 0.2)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>0~0</weaponMoney>
+    <defendPointRadius>0</defendPointRadius>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!-- Cluster mine -->
+
+  <ThingDef ParentName="BaseDroneSeeker">
+    <defName>TDG_Cluster</defName>
+    <label>cluster mine</label>
+    <description>This mine separates into smaller mines that seek out multiple targets simultaneously.</description>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_ExplosiveMelee">
+        <radius>1.9</radius>
+        <damageAmount>12</damageAmount>
+        <damageDef>Bomb</damageDef>
+        <armorPenetration>0.35</armorPenetration>
+        <soundExplode></soundExplode>
+        <explosionChanceToStartFire>0.0</explosionChanceToStartFire>
+        <explosionDamageFalloff>false</explosionDamageFalloff>
+      </li>
+    </comps>
+    <butcherProducts>
+      <Steel>3</Steel>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseDroneKind">
+    <defName>TDG_Cluster</defName>
+    <label>cluster mine</label>
+    <race>TDG_Cluster</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Drone/Cluster</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.55</drawSize>
+          <shadowData>
+            <volume>(0.2, 0.3, 0.2)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <defendPointRadius>0</defendPointRadius>
+    <weaponTags>
+      <li>TDG_ClusterPayload</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <!-- Bomblet mine -->
+
+  <ThingDef ParentName="BaseDroneSeeker">
+    <defName>TDG_Bomblet</defName>
+    <label>bomblet</label>
+    <description>A bomblet released from a cluster carrier, seeks out hostile targets before exploding on proximity.</description>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_ExplosiveMelee">
+        <radius>1.9</radius>
+        <damageAmount>12</damageAmount>
+        <damageDef>Bomb</damageDef>
+        <armorPenetration>0.5</armorPenetration>
+        <soundExplode></soundExplode>
+        <explosionChanceToStartFire>0.0</explosionChanceToStartFire>
+        <explosionDamageFalloff>false</explosionDamageFalloff>
+      </li>
+    </comps>
+    <butcherProducts>
+      <Steel>1</Steel>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseDroneKind">
+    <defName>TDG_Bomblet</defName>
+    <label>bomblet</label>
+    <race>TDG_Bomblet</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Drone/Bomblet</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.30</drawSize>
+          <shadowData>
+            <volume>(0.1, 0.2, 0.1)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>0~0</weaponMoney>
+    <defendPointRadius>0</defendPointRadius>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+
+</Defs>
