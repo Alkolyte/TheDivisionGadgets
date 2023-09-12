@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="BasePawnProjectile" Abstract="True">
+    <category>Projectile</category>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>TheDivisionGadgets.Projectile_Pawn</thingClass>
+    <label>pawnprojectile</label>
+    <tickerType>Normal</tickerType>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+    <projectile>
+      <speed>15</speed>
+      <arcHeightFactor>2</arcHeightFactor>
+      <shadowSize>0.4</shadowSize>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef Name="BasePawnInstaProjectile" Abstract="True">
+    <category>Projectile</category>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>TheDivisionGadgets.Projectile_InstaPawn</thingClass>
+    <label>instapawnprojectile</label>
+    <tickerType>Normal</tickerType>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+      <texPath>Things/WeaponRanged/Payload</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <speed>1</speed>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>1</damageAmountBase>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnProjectile">
+    <defName>Projectile_Seeker</defName>
+    <label>seeker mine</label>
+    <graphicData>
+      <texPath>Things/Pawn/Drone/Seeker_south</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.55</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Seeker</pawnType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnInstaProjectile">
+    <defName>Projectile_InstaSeeker</defName>
+    <label>seeker drone</label>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Seeker</pawnType>
+      </li>
+    </comps>
+    <projectile>
+      <flyOverhead>true</flyOverhead>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnProjectile">
+    <defName>Projectile_Incendiary</defName>
+    <label>seeker mine</label>
+    <graphicData>
+      <texPath>Things/Pawn/Drone/Incendiary_south</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.55</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Incendiary</pawnType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnProjectile">
+    <defName>Projectile_Cluster</defName>
+    <label>cluster mine</label>
+    <graphicData>
+      <texPath>Things/Pawn/Drone/Cluster_south</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.55</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Cluster</pawnType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnProjectile">
+    <defName>Projectile_Bomblet</defName>
+    <label>bomblet</label>
+    <graphicData>
+      <texPath>Things/Pawn/Drone/Bomblet_south</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.30</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Bomblet</pawnType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnProjectile">
+    <defName>Projectile_Striker</defName>
+    <label>striker drone</label>
+    <graphicData>
+      <texPath>Things/Pawn/Drone/Striker_south</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <projectile>
+      <speed>16</speed>
+      <shadowSize>0.4</shadowSize>
+    </projectile>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Striker</pawnType>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BasePawnInstaProjectile">
+    <defName>Projectile_InstaStriker</defName>
+    <label>striker drone</label>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_Projectile_Pawn_Comp">
+        <pawnType>TDG_Striker</pawnType>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ==================== network watch ========================== -->
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>TDG_Apparel_Watch</defName>
+    <label>network watch</label>
+    <description>A small network microcomputer and retinal projector attached to the wrists that assists the user by acting as a PDA with a link to network computing power. The retinal projector assists the user in combat, increasing tactical awareness and aiding in target acquisition. While not up to par with most spacer technologies, the network watch makes up with a broad scope of applications.</description>
+    <techLevel>Industrial</techLevel>
+    <recipeMaker>
+      <researchPrerequisite>TDG_DivisionUplink</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Steel>5</Steel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/Watch</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>14000</WorkToMake>
+      <Mass>0.25</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <SocialImpact>0.05</SocialImpact>
+      <NegotiationAbility>0.05</NegotiationAbility>
+      <MedicalTendQuality>0.05</MedicalTendQuality>
+      <GlobalLearningFactor>0.03</GlobalLearningFactor>
+      <WorkSpeedGlobal>0.03</WorkSpeedGlobal>
+      <ResearchSpeed>0.05</ResearchSpeed>
+      <AimingDelayFactor>-0.10</AimingDelayFactor>
+      <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+      <MortarMissRadiusFactor>-0.05</MortarMissRadiusFactor>
+    </equippedStatOffsets>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Hands</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Seeker belt ========================== -->
+
+  <ThingDef ParentName="ApparelBase">
+    <thingClass>TheDivisionGadgets.SeekerBelt</thingClass>
+    <defName>TDG_Apparel_SeekerBelt</defName>
+    <label>seeker mines</label>
+    <description>A batch of seeker mines linked to a relay brick. Releases an automated mine that seeks out hostile targets before exploding on proximity.</description>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>5</maxCharges>
+        <ammoDef>ComponentIndustrial</ammoDef>
+        <ammoCountPerCharge>1</ammoCountPerCharge>
+        <baseReloadTicks>120</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw seeker mine</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Seeker</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>TDG_SeekerMines</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <Steel>25</Steel>
+      <Chemfuel>30</Chemfuel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/SeekerBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <Mass>2.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DroneBelt/DroneBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>SpacerMilitary</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Incendiary belt ========================== -->
+
+  <ThingDef ParentName="ApparelBase">
+    <thingClass>TheDivisionGadgets.IncendiaryBelt</thingClass>
+    <defName>TDG_Apparel_IncendiaryBelt</defName>
+    <label>incendiary mines</label>
+    <description>A batch of incendiary mines linked to a relay brick. Releases an automated mine filled with a flammable gel that seeks out hostile targets before exploding on proximity.</description>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>5</maxCharges>
+        <ammoDef>Chemfuel</ammoDef>
+        <ammoCountPerCharge>15</ammoCountPerCharge>
+        <baseReloadTicks>120</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw incendiary mine</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Incendiary</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>TDG_SeekerMines</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Steel>20</Steel>
+      <Chemfuel>140</Chemfuel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/IncendiaryBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <Mass>2.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DroneBelt/DroneBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>SpacerMilitary</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Cluster belt ========================== -->
+
+  <ThingDef ParentName="ApparelBase">
+    <thingClass>TheDivisionGadgets.ClusterBelt</thingClass>
+    <defName>TDG_Apparel_ClusterBelt</defName>
+    <label>cluster mines</label>
+    <description>A batch of cluster mines linked to a relay brick. Releases an automated mine that separates into smaller mines, seeks out hostile targets before exploding on proximity.</description>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>3</maxCharges>
+        <ammoDef>ComponentIndustrial</ammoDef>
+        <ammoCountPerCharge>2</ammoCountPerCharge>
+        <baseReloadTicks>120</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw cluster mine</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Cluster</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>TDG_SeekerMines</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>9</ComponentIndustrial>
+      <Steel>30</Steel>
+      <Chemfuel>40</Chemfuel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/ClusterBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <Mass>2.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DroneBelt/DroneBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>SpacerMilitary</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Striker belt ========================== -->
+
+  <ThingDef ParentName="ApparelBase">
+    <thingClass>TheDivisionGadgets.StrikerBelt</thingClass>
+    <defName>TDG_Apparel_StrikerBelt</defName>
+    <label>striker drones</label>
+    <description>A batch of striker drones linked to a relay brick. Releases an automated drone that seeks out and attacks hostiles.</description>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>3</maxCharges>
+        <ammoDef>ComponentIndustrial</ammoDef>
+        <ammoCountPerCharge>2</ammoCountPerCharge>
+        <baseReloadTicks>120</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>drone</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>launch striker drone</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Striker</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>TDG_StrikerDrones</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <Steel>55</Steel>
+    </costList>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/StrikerBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <Mass>2.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DroneBelt/DroneBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>SpacerMilitary</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Chem launcher ========================== -->
+
+  <ThingDef ParentName="ApparelBase">
+    <defName>TDG_Apparel_ChemLauncher</defName>
+    <label>chem launcher</label>
+    <description>A kit of replicating mechanites, compounds and canisters complete with a wide barreled launcher. The canisters release chemical clouds on impact producing various effects. \n\nReinforcer clouds latch onto creatures and buildings, temporarily reinforcing their armor and repairing damage respectivly. \n\nOxidizer clouds corrode structures and embrittle armor, causing successful hits to deal more damage than normal. \n\nFirestarter canisters drench the area with a thick layer of fuel before sparking it alight, while the initial blast does not deal much damage, firestarters can deny large swaths of area.</description>
+    <techLevel>Industrial</techLevel>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>4</maxCharges>
+        <ammoDef>Neutroamine</ammoDef>
+        <ammoCountPerCharge>5</ammoCountPerCharge>
+        <baseReloadTicks>120</baseReloadTicks>
+        <soundReload>Standard_Reload</soundReload>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>vial</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>fire reinforcer canister</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <violent>false</violent>
+        <range>23.9</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>InfernoCannon_Fire</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Bullet_Reinforcer</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+      <li>
+        <label>fire oxidizer canister</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <violent>false</violent>
+        <range>23.9</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>InfernoCannon_Fire</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Bullet_Oxidizer</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+      <li>
+        <label>fire firestarter canister</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <violent>false</violent>
+        <range>23.9</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>InfernoCannon_Fire</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Bullet_Firestarter</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <recipeMaker>
+      <researchPrerequisite>TDG_ChemLaunchers</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedPack</unfinishedThingDef>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <Steel>35</Steel>
+      <Neutroamine>15</Neutroamine>
+    </costList>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/ChemlauncherBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToMake>24000</WorkToMake>
+      <Mass>2.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/DroneBelt/DroneBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+</Defs>

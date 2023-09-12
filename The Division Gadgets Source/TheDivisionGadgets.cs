@@ -32,7 +32,7 @@ namespace TheDivisionGadgets
             ///Scribe_Values.Look(ref isBuildable, "isBuildable");
             Scribe_Values.Look(ref hasBattery, "hasBattery");
             Scribe_Values.Look(ref enemyPacks, "enemyPacks");
-            Scribe_Values.Look(ref enemySingles, "enemyPacks");
+            Scribe_Values.Look(ref enemySingles, "enemySingles");
             Scribe_Values.Look(ref wipeDefaultFaction, "wipeDefaultFaction");
             base.ExposeData();
         }
@@ -77,8 +77,8 @@ namespace TheDivisionGadgets
                         DefDatabase<ThingDef>.GetNamed(packnames[i]).apparel.tags.Clear();
                     }
                 }
-                bool singlePacks = LoadedModManager.GetMod<TheDivisionGadgets>().GetSettings<TheDivisionGadgetsSettings>().enemyPacks;
-                if (!singlePacks)
+                bool enemySingles = LoadedModManager.GetMod<TheDivisionGadgets>().GetSettings<TheDivisionGadgetsSettings>().enemySingles;
+                if (!enemySingles)
                 {
                     for (int i = 0; i < packnames.Length; i++)
                     {
@@ -360,21 +360,23 @@ namespace TheDivisionGadgets
             base.Tick();
         }
         
-    protected override void Impact(Thing hitThing, bool blockedByShield = false)
-    {
+        protected override void Impact(Thing hitThing, bool blockedByShield = false)
+        {
             Map map = base.Map;
             IntVec3 position = base.Position;
             Projectile_Pawn_Comp comp = this.GetComp<Projectile_Pawn_Comp>();
-            Faction faction = FactionUtility.DefaultFactionFrom(PawnKindDef.Named(comp.Props.pawnType).defaultFactionType);
-            faction = this.faction;
-            Pawn pawn = GenSpawn.Spawn(PawnGenerator.GeneratePawn(PawnKindDef.Named(comp.Props.pawnType), faction), position, map, WipeMode.Vanish) as Pawn;
+            if (this.faction == null)
+            {
+                this.faction = FactionUtility.DefaultFactionFrom(PawnKindDef.Named(comp.Props.pawnType).defaultFactionType);
+            }
+            Pawn pawn = GenSpawn.Spawn(PawnGenerator.GeneratePawn(PawnKindDef.Named(comp.Props.pawnType), this.faction), position, map, WipeMode.Vanish) as Pawn;
             pawn.pather.TryRecoverFromUnwalkablePosition(false);
             bool hasBattery = LoadedModManager.GetMod<TheDivisionGadgets>().GetSettings<TheDivisionGadgetsSettings>().hasBattery;
             if (hasBattery)
             {
                 pawn.health.AddHediff(HediffDefOf.TDG_Battery);
             }
-            if (faction == null)
+            if (this.faction == null)
             {
                 pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent, null, false, false, null, false, false, false);
             }

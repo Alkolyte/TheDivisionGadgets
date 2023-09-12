@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BasePawn" Name="BaseDrone" Abstract="True">
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <statBases>
+      <PsychicSensitivity>0.5</PsychicSensitivity>
+      <ToxicSensitivity>0</ToxicSensitivity>
+      <Flammability>0</Flammability>
+      <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+      <ComfyTemperatureMax>250</ComfyTemperatureMax>
+      <MeatAmount>0</MeatAmount>
+      <ArmorRating_Heat>2.00</ArmorRating_Heat>
+    </statBases>
+    <receivesSignals>true</receivesSignals>
+    <race>
+      <fleshType>Mechanoid</fleshType>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <foodType>None</foodType>
+      <lifeExpectancy>2500</lifeExpectancy>
+      <bloodDef>Filth_MachineBits</bloodDef>
+    </race>
+    <comps>
+      <li Class="TheDivisionGadgets.CompProperties_DeathOnDowned"/>
+      <li Class="CompProperties_CanBeDormant"/>
+      <li Class="CompProperties_WakeUpDormant">
+        <wakeUpOnDamage>true</wakeUpOnDamage>
+        <anyColonistCloseCheckRadius>30</anyColonistCloseCheckRadius>
+        <wakeUpSound>Pawn_Drone_Wakeup</wakeUpSound>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <PawnKindDef Name="BaseDroneKind" Abstract="True">
+    <defaultFactionType>AncientsHostile</defaultFactionType>
+    <aiAvoidCover>true</aiAvoidCover>
+    <destroyGearOnDrop>true</destroyGearOnDrop>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="BaseDroneKind" Name="BaseDroneSmartKind" Abstract="True">
+    <aiAvoidCover>false</aiAvoidCover>
+  </PawnKindDef>
+
+
+</Defs>

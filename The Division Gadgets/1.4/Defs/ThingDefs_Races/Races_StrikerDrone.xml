@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+  <!-- Striker drone base -->
+
+  <ThingDef ParentName="BaseDrone" Name="BaseDroneStriker" Abstract="True">
+    <statBases>
+      <MoveSpeed>9.0</MoveSpeed>
+      <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.15</ArmorRating_Sharp>
+    </statBases>
+    <race>
+      <intelligence>ToolUser</intelligence>
+      <thinkTreeMain>Mechanoid</thinkTreeMain>
+      <baseBodySize>0.1</baseBodySize>
+      <body>StrikerDrone</body>
+      <baseHealthScale>0.30</baseHealthScale>
+        <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+        <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+        <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+      <lifeStageAges>
+        <li>
+          <def>MechanoidFullyFormed</def>
+          <minAge>0</minAge>
+          <soundDeath>Pawn_Drone_Death</soundDeath>
+        </li>
+      </lifeStageAges>
+    </race>
+    <tools>
+      <li>
+        <label>shell</label>
+        <labelUsedInLogging>true</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>3</power>
+        <cooldownTime>4.5</cooldownTime>
+      </li>
+    </tools>
+    <butcherProducts>
+      <Steel>5</Steel>
+    </butcherProducts>
+  </ThingDef>
+
+  <!-- Striker drone -->
+
+  <ThingDef ParentName="BaseDroneStriker">
+    <defName>TDG_Striker</defName>
+    <label>striker drone</label>
+    <description>An extremely lightweight aerodrone sporting an assault gun with an obscene fire rate. Carrying little to no armour, the survivability of the striker drone lies in its small size and its use of cover. Mostly deployed in support of other forces.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseDroneSmartKind">
+    <defName>TDG_Striker</defName>
+    <label>striker drone</label>
+    <race>TDG_Striker</race>
+    <combatPower>75</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Drone/Striker</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.0</drawSize>
+          <shadowData>
+            <volume>(0.2, 0.3, 0.2)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+    <defendPointRadius>0</defendPointRadius>
+    <weaponTags>
+      <li>DroneWeaponStriker</li>
+    </weaponTags>
+  </PawnKindDef>
+
+</Defs>
