@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-	
-	<ResearchTabDef>
-		<defName>TDG_Network</defName>
-		<label>Division Network</label>
-	</ResearchTabDef>
-
-</Defs>
