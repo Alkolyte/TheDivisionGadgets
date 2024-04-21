@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ==================== Seeker one use ========================== -->
+
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <thingClass>TheDivisionGadgets.SeekerBelt</thingClass>
+    <defName>TDG_Apparel_SeekerSingle</defName>
+    <label>seeker mine</label>
+    <description>A seeker mine severed from its relay brick. Releases an automated mine that seeks out hostile targets before exploding on proximity, single use.</description>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_ApparelReloadable">
+        <maxCharges>1</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw seeker mine</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Seeker</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+      <li>
+        <label>drop seeker mine</label>
+        <verbClass>TheDivisionGadgets.Verb_Drop</verbClass>
+        <violent>false</violent>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+        <onlyManualCast>True</onlyManualCast>
+        <defaultProjectile>Projectile_Seeker</defaultProjectile>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+      </li>
+    </verbs>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/SeekerSevered</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Mass>0.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>250</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/SeveredBelt/SeveredBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>IndustrialMilitaryAdvanced</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Incendiary one use ========================== -->
+
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <thingClass>TheDivisionGadgets.IncendiaryBelt</thingClass>
+    <defName>TDG_Apparel_IncendiarySingle</defName>
+    <label>incendiary mine</label>
+    <description>An incendiary mine severed from its relay brick. Releases an automated mine filled with a flammable gel that seeks out hostile targets before exploding on proximity, single use.</description>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_ApparelReloadable">
+        <maxCharges>1</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw incendiary mine</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Incendiary</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+      <li>
+        <label>drop incendiary mine</label>
+        <verbClass>TheDivisionGadgets.Verb_Drop</verbClass>
+        <violent>false</violent>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+        <onlyManualCast>True</onlyManualCast>
+        <defaultProjectile>Projectile_Incendiary</defaultProjectile>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+      </li>
+    </verbs>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/IncendiarySevered</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Mass>0.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>250</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/SeveredBelt/SeveredBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>IndustrialMilitaryAdvanced</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Cluster one use ========================== -->
+
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <thingClass>TheDivisionGadgets.ClusterBelt</thingClass>
+    <defName>TDG_Apparel_ClusterSingle</defName>
+    <label>cluster mine</label>
+    <description>A cluster mine severed from its relay brick. Releases an automated mine that separates into smaller mines, seeks out hostile targets before exploding on proximity, single use.</description>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_ApparelReloadable">
+        <maxCharges>1</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw cluster mine</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Cluster</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+      <li>
+        <label>drop cluster mine</label>
+        <verbClass>TheDivisionGadgets.Verb_Drop</verbClass>
+        <violent>false</violent>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+        <onlyManualCast>True</onlyManualCast>
+        <defaultProjectile>Projectile_Cluster</defaultProjectile>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+      </li>
+    </verbs>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/ClusterSevered</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Mass>0.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>250</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/SeveredBelt/SeveredBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>IndustrialMilitaryAdvanced</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+
+  <!-- ==================== Striker one use ========================== -->
+
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <thingClass>TheDivisionGadgets.StrikerBelt</thingClass>
+    <defName>TDG_Apparel_StrikerSingle</defName>
+    <label>striker drone</label>
+    <description>A striker drone severed from its relay brick. Releases an automated drone that seeks out and attacks hostiles, single use.</description>
+    <techLevel>Industrial</techLevel>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_ApparelReloadable">
+        <maxCharges>1</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>mine</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>throw striker drone</label>
+        <verbClass>Verb_LaunchProjectileStatic</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <range>13.0</range>
+        <warmupTime>1.5</warmupTime>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+        <drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>Projectile_Striker</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+      <li>
+        <label>deploy striker drone</label>
+        <verbClass>TheDivisionGadgets.Verb_Drop</verbClass>
+        <violent>false</violent>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+        <onlyManualCast>True</onlyManualCast>
+        <defaultProjectile>Projectile_Striker</defaultProjectile>
+        <noiseRadius>4</noiseRadius>
+        <soundCast>ThrowGrenade</soundCast>
+      </li>
+    </verbs>
+    <graphicData>
+      <texPath>Things/Apparel/Belts/StrikerSevered</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Mass>0.5</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+      <MarketValue>250</MarketValue>
+    </statBases>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <generateCommonality>0.50</generateCommonality>
+    <generateAllowChance>0.15</generateAllowChance>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/SeveredBelt/SeveredBelt</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(-0.30,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(0.10,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.25,-0.20)</offset>
+      <hulk><offset>(-0.0,-0.10)</offset></hulk>
+      <fat><offset>(-0.0,-0.0)</offset></fat>
+      <thin><offset>(-0.10,-0.0)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.10,-0.10)</offset></fat>
+        </east>
+        <west>
+          <offset>(0.15,-0.25)</offset>
+      <hulk><offset>(-0.0,-0.15)</offset></hulk>
+      <fat><offset>(-0.0,-0.10)</offset></fat>
+        </west>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
+      </wornGraphicData>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>IndustrialMilitaryAdvanced</li>
+      </tags>
+    </apparel>
+  </ThingDef>
+</Defs>

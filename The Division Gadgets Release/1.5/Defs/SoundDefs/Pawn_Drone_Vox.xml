@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><Defs>
+
+<!-- Drones -->
+  <SoundDef>
+    <defName>Pawn_Drone_Death</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>1</maxVoices>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Pawn/Drone/Drone_Death</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>30~30</volumeRange>      
+        <pitchRange>0.9311765~1.045882</pitchRange>   
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Pawn_Drone_Wakeup</defName>  
+    <context>MapOnly</context>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Pawn/Drone/Drone_Wakeup</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>30~30</volumeRange>      
+        <pitchRange>0.9311765~1.045882</pitchRange>      
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
+</Defs>

@@ -301,7 +301,7 @@ namespace TheDivisionGadgets
             }
         }
 
-        public override void Notify_PawnDied()
+        public override void Notify_PawnDied(DamageInfo? dinfo, Hediff culprit = null)
         {
             if (this.Props.destroyBody)
             {
@@ -378,7 +378,7 @@ namespace TheDivisionGadgets
             }
             if (this.faction == null)
             {
-                pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent, null, false, false, null, false, false, false);
+                pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.ManhunterPermanent, null, false, false, false, null, false, false);
             }
             Lord lord = this.Lord;
             if (lord == null)
@@ -535,7 +535,7 @@ namespace TheDivisionGadgets
                 {
                     comp.Notify_ProjectileLaunched();
                 }
-                CompReloadable comp2 = base.EquipmentSource.GetComp<CompReloadable>();
+                CompApparelReloadable comp2 = base.EquipmentSource.GetComp<CompApparelReloadable>();
                 if (comp2 != null)
                 {
                     comp2.UsedOnce();
@@ -589,7 +589,7 @@ namespace TheDivisionGadgets
             ThingDef targetCoverDef = (randomCoverToMissInto != null) ? randomCoverToMissInto.def : null;
             if (!Rand.Chance(shotReport.AimOnTargetChance_IgnoringPosture))
             {
-                shootLine.ChangeDestToMissWild(shotReport.AimOnTargetChance_StandardTarget);
+                shootLine.ChangeDestToMissWild_NewTemp(shotReport.AimOnTargetChance_StandardTarget, false, caster.Map);
                 this.ThrowDebugText("ToWild" + (this.canHitNonTargetPawnsNow ? "\nchntp" : ""));
                 this.ThrowDebugText("Wild\nDest", shootLine.Dest);
                 ProjectileHitFlags projectileHitFlags2 = ProjectileHitFlags.NonTargetWorld;
@@ -705,7 +705,7 @@ namespace TheDivisionGadgets
             return Drop(this.Projectile, this.caster, base.ReloadableCompSource);
         }
 
-        public static bool Drop(ThingDef projectile, Thing caster, CompReloadable comp)
+        public static bool Drop(ThingDef projectile, Thing caster, CompApparelReloadable comp)
         {
             if (projectile == null)
             {
@@ -713,10 +713,10 @@ namespace TheDivisionGadgets
             }
             if (comp != null)
             {
-                if (!comp.CanBeUsed)
-                {
-                    return true;
-                }
+                //if (!comp.CanBeUsed())
+                //{
+                //    return true;
+                //}
                 comp.UsedOnce();
             }
             ShootLine shootLine = new ShootLine(caster.Position, caster.Position);
@@ -938,7 +938,7 @@ namespace TheDivisionGadgets
             }
             if (impactData.bullet.Launcher != null && impactData.bullet.Launcher.HostileTo(base.Wearer) && !wearer.IsColonist && wearer.Spawned)
             {
-                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Seeker"), wearer, this.TryGetComp<CompReloadable>());
+                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Seeker"), wearer, this.TryGetComp<CompApparelReloadable>());
             }
         }
     }
@@ -955,7 +955,7 @@ namespace TheDivisionGadgets
             }
             if (impactData.bullet.Launcher != null && impactData.bullet.Launcher.HostileTo(base.Wearer) && !wearer.IsColonist && wearer.Spawned)
             {
-                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Incendiary"), wearer, this.TryGetComp<CompReloadable>());
+                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Incendiary"), wearer, this.TryGetComp<CompApparelReloadable>());
             }
         }
     }
@@ -972,7 +972,7 @@ namespace TheDivisionGadgets
             }
             if (impactData.bullet.Launcher != null && impactData.bullet.Launcher.HostileTo(base.Wearer) && !wearer.IsColonist && wearer.Spawned)
             {
-                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Cluster"), wearer, this.TryGetComp<CompReloadable>());
+                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Cluster"), wearer, this.TryGetComp<CompApparelReloadable>());
             }
         }
     }
@@ -989,7 +989,7 @@ namespace TheDivisionGadgets
             }
             if (impactData.bullet.Launcher != null && impactData.bullet.Launcher.HostileTo(base.Wearer) && !wearer.IsColonist && wearer.Spawned)
             {
-                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Striker"), wearer, this.TryGetComp<CompReloadable>());
+                Verb_Drop.Drop(DefDatabase<ThingDef>.GetNamed("Projectile_Striker"), wearer, this.TryGetComp<CompApparelReloadable>());
             }
         }
     }
